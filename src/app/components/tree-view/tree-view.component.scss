@@ -1,0 +1,28 @@
+.fill-height {
+    flex-grow: 1;
+    max-height: calc(100% - 1.5em - 3rem);
+}
+.fullWidth {
+    width: 100%;
+}
+.ghost {
+    opacity: 0;
+}
+:host {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
+    ::ng-deep {
+        .p-tree {
+            border: none;
+            padding: 0;
+        }
+        .p-treenode-label {
+            flex-grow: 1;
+        }
+        .p-treenode-content:hover .ghost {
+            opacity: 1;
+        }
+    }
+}

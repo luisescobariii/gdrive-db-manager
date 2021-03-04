@@ -1,0 +1,17 @@
+.rowIndex {
+    text-align: right!important;
+    border: 1px solid #e9ecef;
+    font-weight: 600;
+    color: #495057;
+    background: #f8f9fa;
+    transition: box-shadow 0.2s;
+    padding: 0.5rem 0.5rem;
+    width: 3em;
+}
+
+:host ::ng-deep {
+    .p-panel-content {
+        border: 0;
+        padding: 0;
+    }
+}

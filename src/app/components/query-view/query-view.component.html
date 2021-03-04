@@ -1,0 +1,24 @@
+<p-panel [toggleable]="true" [collapsed]="true">
+  <ng-template pTemplate="header">
+    <input type="text" pInputText />
+  </ng-template>
+  <ng-template pTemplate="body">
+    <div>
+      <p-table *ngIf="result" [value]="result.records"
+      styleClass="p-datatable-sm p-datatable-gridlines"  [scrollable]="true" scrollHeight="40vh">
+        <ng-template pTemplate="header">
+          <tr>
+            <th class="rowIndex"></th>
+            <th *ngFor="let header of result.headers">{{ header }}</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-record let-rowIndex="rowIndex">
+          <tr>
+            <th class="rowIndex">{{ rowIndex + 1 }}</th>
+            <td *ngFor="let header of result.headers; index as i">{{ record[i] }}</td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </ng-template>
+</p-panel>

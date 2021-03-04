@@ -1,14 +1,41 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+
+import { ButtonModule } from 'primeng/button';
+import { CheckboxModule } from 'primeng/checkbox';
+import { DropdownModule } from 'primeng/dropdown';
+import { InputTextModule } from 'primeng/inputtext';
+import { PanelModule } from 'primeng/panel';
+import { SplitterModule } from 'primeng/splitter';
+import { TableModule } from 'primeng/table';
+import { TreeModule } from 'primeng/tree';
 
 import { AppComponent } from './app.component';
+import { TreeViewComponent } from './components/tree-view/tree-view.component';
+import { TableViewComponent } from './components/table-view/table-view.component';
+import { QueryViewComponent } from './components/query-view/query-view.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TreeViewComponent,
+    TableViewComponent,
+    QueryViewComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    ButtonModule,
+    CheckboxModule,
+    DropdownModule,
+    InputTextModule,
+    PanelModule,
+    SplitterModule,
+    TableModule,
+    TreeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
