@@ -1,21 +1,26 @@
-<p-splitter stateKey="split1" [panelSizes]="[30,70]" [style]="{'height': '100%'}">
+<p-splitter stateKey="split1" [panelSizes]="[30,70]"
+[style]="{'height': '100%', 'border': 'none', 'border-radius': '0'}">
   <ng-template>
-    <div class="scrollable">
-      <app-tree-view></app-tree-view>
-  </div>
+    <div class="p-grid p-m-0 fluid">
+      <div class="p-col-auto sidebar">
+        <p-toggleButton [onIcon]="'pi pi-moon'" offIcon="pi pi-sun"
+        styleClass="p-button-link"
+        [(ngModel)]="isDarkTheme"
+        (onChange)="changeTheme()"></p-toggleButton>
+      </div>
+        <div class="scrollable p-col p-p-0 treebar">
+          <app-tree-view></app-tree-view>
+        </div>
+    </div>
   </ng-template>
   <ng-template>
-    <p-splitter [panelSizes]="[99,1]" layout="vertical" class="hidden-split" [gutterSize]="0">
-      <ng-template>
-        <div class="scrollable">
-          <app-table-view></app-table-view>
-      </div>
-      </ng-template>
-      <ng-template>
-        <div class="scrollable p-p-0">
-          <app-query-view></app-query-view>
-        </div>
-      </ng-template>
-  </p-splitter>
+    <p-tabView>
+      <p-tabPanel header="My Table" [closable]="true">
+        <app-table-view></app-table-view>
+      </p-tabPanel>
+      <p-tabPanel header="Query 1" [closable]="true">
+        <app-query-view></app-query-view>
+      </p-tabPanel>
+    </p-tabView>
   </ng-template>
 </p-splitter>

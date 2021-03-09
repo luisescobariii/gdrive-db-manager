@@ -1,7 +1,32 @@
-
-.scrollable {
-    height: 100%;
-    overflow: hidden;
-    padding: 1rem;
+.fluid {
     width: 100%;
+}
+.scrollable {
+    max-height: 100%;
+    overflow: auto;
+    flex-shrink: 0;
+    position: relative;
+    width: 100%;
+}
+.sidebar {
+    background-color: var(--surface-300);
+}
+:host ::ng-deep {
+    .p-togglebutton.p-button.p-highlight {
+        background: transparent;
+        border: transparent;
+        span {
+            color: rgba(255, 255, 255, 0.6)!important;
+        }
+    }
+    .treebar {
+        background-color: var(--surface-100);
+    }
+}
+body.dark {
+    :host {
+        .treebar {
+            background-color: var(--surface-200);
+        }
+    }
 }

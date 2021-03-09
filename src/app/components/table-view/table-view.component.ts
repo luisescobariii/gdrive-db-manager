@@ -16,9 +16,6 @@ export class TableViewComponent implements OnInit {
       { name: 'id', required: false },
       { name: 'username', required: false },
       { name: 'password', required: false },
-      { name: 'id', required: false },
-      { name: 'username', required: false },
-      { name: 'password', required: false },
     ]
   };
 

@@ -12,9 +12,11 @@
     display: flex;
     flex-direction: column;
     height: 100%;
+    padding: 1rem;
 
     ::ng-deep {
         .p-tree {
+            background-color: var(--surface-100);
             border: none;
             padding: 0;
         }
@@ -23,6 +25,15 @@
         }
         .p-treenode-content:hover .ghost {
             opacity: 1;
+        }
+    }
+}
+body.dark {
+    :host {
+        ::ng-deep {
+            .p-tree {
+                background-color: var(--surface-200);
+            }
         }
     }
 }

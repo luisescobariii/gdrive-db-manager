@@ -1,3 +1,15 @@
 :host {
-    overflow: auto;
+
+    .clear-inputs {
+        ::ng-deep {
+            td {
+                padding: 0.2rem;
+
+                .p-dropdown,
+                .p-inputtext {
+                    border: none;
+                }
+            }
+        }
+    }
 }

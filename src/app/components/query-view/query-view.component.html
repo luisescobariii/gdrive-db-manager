@@ -1,6 +1,9 @@
 <p-panel [toggleable]="true" [collapsed]="true">
   <ng-template pTemplate="header">
-    <input type="text" pInputText />
+    <div class="p-inputgroup p-mr-3">
+      <input type="text" pInputText placeholder="Query">
+      <button type="button" pButton label="Run"></button>
+  </div>
   </ng-template>
   <ng-template pTemplate="body">
     <div>

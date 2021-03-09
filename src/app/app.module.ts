@@ -10,6 +10,8 @@ import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
 import { SplitterModule } from 'primeng/splitter';
 import { TableModule } from 'primeng/table';
+import { TabViewModule } from 'primeng/tabview';
+import { ToggleButtonModule } from 'primeng/togglebutton';
 import { TreeModule } from 'primeng/tree';
 
 import { AppComponent } from './app.component';
@@ -35,6 +37,8 @@ import { QueryViewComponent } from './components/query-view/query-view.component
     PanelModule,
     SplitterModule,
     TableModule,
+    TabViewModule,
+    ToggleButtonModule,
     TreeModule
   ],
   providers: [],
