@@ -12,6 +12,14 @@
     background-color: var(--surface-300);
 }
 :host ::ng-deep {
+    .p-tabview.p-component {
+        height: 100%;
+
+        .p-tabview-panels {
+            height: calc(100% - 2rem - 1em - 2px);
+            overflow: auto;
+        }
+    }
     .p-togglebutton.p-button.p-highlight {
         background: transparent;
         border: transparent;

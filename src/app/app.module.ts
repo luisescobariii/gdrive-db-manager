@@ -5,6 +5,7 @@ import { FormsModule } from '@angular/forms';
 
 import { ButtonModule } from 'primeng/button';
 import { CheckboxModule } from 'primeng/checkbox';
+import { DialogModule } from 'primeng/dialog';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextModule } from 'primeng/inputtext';
 import { PanelModule } from 'primeng/panel';
@@ -12,6 +13,7 @@ import { SplitterModule } from 'primeng/splitter';
 import { TableModule } from 'primeng/table';
 import { TabViewModule } from 'primeng/tabview';
 import { ToggleButtonModule } from 'primeng/togglebutton';
+import { TooltipModule } from 'primeng/tooltip';
 import { TreeModule } from 'primeng/tree';
 
 import { AppComponent } from './app.component';
@@ -32,6 +34,7 @@ import { QueryViewComponent } from './components/query-view/query-view.component
     FormsModule,
     ButtonModule,
     CheckboxModule,
+    DialogModule,
     DropdownModule,
     InputTextModule,
     PanelModule,
@@ -39,7 +42,8 @@ import { QueryViewComponent } from './components/query-view/query-view.component
     TableModule,
     TabViewModule,
     ToggleButtonModule,
-    TreeModule
+    TooltipModule,
+    TreeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

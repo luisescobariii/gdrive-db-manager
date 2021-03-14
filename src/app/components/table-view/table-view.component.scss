@@ -1,4 +1,11 @@
+.no-pointer-events {
+    pointer-events: none;
+}
+
 :host {
+
+    height: 100%;
+    overflow: auto;
 
     .clear-inputs {
         ::ng-deep {
@@ -10,6 +17,13 @@
                     border: none;
                 }
             }
+        }
+    }
+
+    ::ng-deep {
+        .p-dropdown,
+        .p-inputtext {
+            background: transparent;
         }
     }
 }
