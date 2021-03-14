@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-table-view',
@@ -7,17 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TableViewComponent implements OnInit {
 
-  table = {
-    name: 'My table',
-    columns: [
-      { name: 'id', required: false },
-      { name: 'username', required: false },
-      { name: 'password', required: false },
-      { name: 'id', required: false },
-      { name: 'username', required: false },
-      { name: 'password', required: false },
-    ]
-  };
+  table: any;
 
   types = [
     'any',
@@ -34,9 +25,25 @@ export class TableViewComponent implements OnInit {
     'date(\'format\')',
   ];
 
-  constructor() { }
+  isDeleteDialogVisible = false;
+
+  constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+    this.table = this.api.table.get();
+    console.log(this.table);
+  }
+
+  addRow() {
+    this.table.columns.push({ name: '' });
+  }
+
+  deleteRow() {
+    console.log(this.table.columns.pop());
+  }
+
+  deleteTable() {
+    
   }
 
 }

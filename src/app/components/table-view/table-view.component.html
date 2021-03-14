@@ -1,23 +1,48 @@
-<h2>{{ table.name }}</h2>
-<br>
+<div class="p-d-flex p-jc-between p-ai-center p-mb-2">
+  <h2>{{ table.name }}</h2>
+  <span class="p-buttonset">
+    <button pButton type="button" class="p-button-sm" icon="fas fa-minus"
+    pTooltip="Delete last row" [showDelay]="1000" (click)="deleteRow()"></button>
+    <button pButton type="button" icon="fas fa-plus" class="p-button-sm"
+    pTooltip="Add row" [showDelay]="1000" (click)="addRow()"></button>
+</span>
+</div>
 <p-table [value]="table.columns" styleClass="p-datatable-gridlines" class="clear-inputs">
   <ng-template pTemplate="header">
     <tr>
+      <th style="width: 3rem;"></th>
       <th>Name</th>
-      <th>Required</th>
       <th>Type</th>
       <th>Initial Value</th>
+      <th class="p-text-center" style="width: 8rem;">Required</th>
     </tr>
   </ng-template>
-  <ng-template pTemplate="body" let-column>
-    <tr>
+  <ng-template pTemplate="body" let-column let-index="rowIndex">
+    <tr [pReorderableRow]="index">
+      <td class="p-text-center p-p-0">
+        <span class="fas fa-bars p-p-2" [pReorderableRowHandle]="index"></span>
+      </td>
       <td class="p-fluid"><input type="text" pInputText [(ngModel)]="column.name"></td>
-      <td><p-checkbox [(ngModel)]="column.required" [binary]="true"></p-checkbox></td>
       <td class="p-fluid"><p-dropdown [options]="types" [(ngModel)]="column.type"></p-dropdown></td>
-      <td class="p-fluid"><p-dropdown [options]="initialOptions" [(ngModel)]="column.initialValue" [editable]="true"></p-dropdown></td>
+      <td class="p-fluid"><p-dropdown [options]="initialOptions"
+        [(ngModel)]="column.initialValue" [editable]="true"></p-dropdown></td>
+      <td class="p-text-center"><p-checkbox [(ngModel)]="column.required"
+        [binary]="true"></p-checkbox></td>
     </tr>
   </ng-template>
 </p-table>
 <br>
-<button pButton icon="pi pi-save" class="p-mr-3" label="Save"></button>
-<button pButton icon="pi pi-trash" class="p-button-danger" label="Delete"></button>
+<button pButton icon="fas fa-save" class="p-mr-3" label="Save"></button>
+<button pButton icon="fas fa-trash" class="p-button-outlined" label="Delete"
+(click)="isDeleteDialogVisible = true"></button>
+
+<p-dialog header="Confirmation" [(visible)]="isDeleteDialogVisible" [style]="{width: '40vw'}"
+[modal]="true" [blockScroll]="true" [resizable]="false" [dismissableMask]="true">
+  Do you want to delete this table?
+  <p-footer>
+    <button pButton icon="fas fa-times" class="p-button-text p-mr-3" label="Cancel"
+    (click)="isDeleteDialogVisible = false"></button>
+    <button pButton icon="fas fa-trash" class="p-button-danger" label="Delete"
+    (click)="deleteTable()"></button>
+  </p-footer>
+</p-dialog>
