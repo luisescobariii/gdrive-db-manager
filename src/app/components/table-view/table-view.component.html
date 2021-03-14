@@ -2,19 +2,19 @@
   <h2>{{ table.name }}</h2>
   <span class="p-buttonset">
     <button pButton type="button" class="p-button-sm" icon="fas fa-minus"
-    pTooltip="Delete last row" [showDelay]="1000" (click)="deleteRow()"></button>
+    [pTooltip]="'table.delete-row' | translate" [showDelay]="1000" (click)="deleteRow()"></button>
     <button pButton type="button" icon="fas fa-plus" class="p-button-sm"
-    pTooltip="Add row" [showDelay]="1000" (click)="addRow()"></button>
+    [pTooltip]="'table.add-row' | translate" [showDelay]="1000" (click)="addRow()"></button>
 </span>
 </div>
 <p-table [value]="table.columns" styleClass="p-datatable-gridlines" class="clear-inputs">
   <ng-template pTemplate="header">
     <tr>
       <th style="width: 3rem;"></th>
-      <th>Name</th>
-      <th>Type</th>
-      <th>Initial Value</th>
-      <th class="p-text-center" style="width: 8rem;">Required</th>
+      <th>{{ 'table.headers.name' | translate }}</th>
+      <th>{{ 'table.headers.type' | translate }}</th>
+      <th>{{ 'table.headers.initialValue' | translate }}</th>
+      <th class="p-text-center" style="width: 8rem;">{{ 'table.headers.required' | translate }}</th>
     </tr>
   </ng-template>
   <ng-template pTemplate="body" let-column let-index="rowIndex">
@@ -32,17 +32,17 @@
   </ng-template>
 </p-table>
 <br>
-<button pButton icon="fas fa-save" class="p-mr-3" label="Save"></button>
-<button pButton icon="fas fa-trash" class="p-button-outlined" label="Delete"
+<button pButton icon="fas fa-save" class="p-mr-3" [label]="'common.save' | translate"></button>
+<button pButton icon="fas fa-trash" class="p-button-outlined" [label]="'common.delete' | translate"
 (click)="isDeleteDialogVisible = true"></button>
 
 <p-dialog header="Confirmation" [(visible)]="isDeleteDialogVisible" [style]="{width: '40vw'}"
 [modal]="true" [blockScroll]="true" [resizable]="false" [dismissableMask]="true">
-  Do you want to delete this table?
+  {{ 'table.delete-table-message' | translate }}
   <p-footer>
-    <button pButton icon="fas fa-times" class="p-button-text p-mr-3" label="Cancel"
-    (click)="isDeleteDialogVisible = false"></button>
-    <button pButton icon="fas fa-trash" class="p-button-danger" label="Delete"
-    (click)="deleteTable()"></button>
+    <button pButton icon="fas fa-times" class="p-button-text p-mr-3"
+    [label]="'common.cancel' | translate" (click)="isDeleteDialogVisible = false"></button>
+    <button pButton icon="fas fa-trash" class="p-button-danger"
+    [label]="'common.delete' | translate" (click)="deleteTable()"></button>
   </p-footer>
 </p-dialog>

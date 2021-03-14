@@ -5,8 +5,8 @@
 .fullWidth {
     width: 100%;
 }
-.ghost {
-    opacity: 0;
+.active {
+    font-weight: bold;
 }
 :host {
     display: flex;
@@ -22,6 +22,9 @@
         }
         .p-treenode-label {
             flex-grow: 1;
+        }
+        .ghost {
+            opacity: 0;
         }
         .p-treenode-content:hover .ghost {
             opacity: 1;

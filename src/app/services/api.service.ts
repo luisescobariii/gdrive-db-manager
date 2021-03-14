@@ -19,29 +19,29 @@ export class ApiService {
 
   mockServer = [
     {
-      key: '0',
-      label: 'DB 1', icon: 'pi pi-cloud',
+      id: 0,
+      label: 'DB 1', icon: 'fas fa-database',
       children: [
-        {key: '0-0', label: 'Tables', icon: 'pi pi-folder', children: [
-          { key: '0-0-0', label: 'Table 1', icon: 'pi pi-table', type: 'table' },
-          { key: '0-0-1', label: 'Table 2', icon: 'pi pi-table', type: 'table' },
-          { key: '0-0-2', label: 'Table 3', icon: 'pi pi-table', type: 'table' },
+        { id: 1, label: 'Tables', icon: 'fas fa-folder', children: [
+          { id: 2, label: 'Table 1', icon: 'fas fa-table', type: 'leaf' },
+          { id: 3, label: 'Table 2', icon: 'fas fa-table', type: 'leaf' },
+          { id: 4, label: 'Table 3', icon: 'fas fa-table', type: 'leaf' },
         ]},
-        {key: '0-1', label: 'Queries', icon: 'pi pi-folder', children: [
-          { key: '0-1-0', label: 'Query 1', icon: 'pi pi-send', type: 'proc' },
-          { key: '0-1-1', label: 'Query 2', icon: 'pi pi-send', type: 'proc' },
+        {id: 5, label: 'Queries', icon: 'fas fa-folder', children: [
+          { id: 6, label: 'Query 1', icon: 'fas fa-paper-plane', type: 'leaf' },
+          { id: 7, label: 'Query 2', icon: 'fas fa-paper-plane', type: 'leaf' },
         ]},
       ]
     },
     {
-      key: '1',
-      label: 'DB 2', icon: 'pi pi-cloud',
+      id: 8,
+      label: 'DB 2', icon: 'fas fa-database',
       children: [
-        {key: '1-0', label: 'Tables', icon: 'pi pi-folder', children: [
-          { key: '1-0-0', label: 'Table 4', icon: 'pi pi-table', type: 'table' },
-          { key: '1-0-1', label: 'Table 5', icon: 'pi pi-table', type: 'table' },
+        {id: 9, label: 'Tables', icon: 'fas fa-folder', children: [
+          { id: 10, label: 'Table 4', icon: 'fas fa-table', type: 'leaf' },
+          { id: 11, label: 'Table 5', icon: 'fas fa-table', type: 'leaf' },
         ]},
-        { key: '1-1', label: 'Queries', icon: 'pi pi-folder', children: [] }
+        { id: 12, label: 'Queries', icon: 'fas fa-folder', children: [] }
       ]
     }
   ];

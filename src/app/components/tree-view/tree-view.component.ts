@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { TreeNode } from 'primeng/api';
 import { ApiService } from 'src/app/services/api.service';
 
 @Component({
@@ -9,7 +8,8 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class TreeViewComponent implements OnInit {
 
-  nodes: TreeNode[];
+  nodes: any[];
+  activeNode = -1;
 
   constructor(private api: ApiService) { }
 
@@ -18,12 +18,41 @@ export class TreeViewComponent implements OnInit {
   }
 
   handdleSelection({node}) {
-    if (node.type === 'table') { this.showTable(node.key); return; }
+    if (node.type === 'leaf') {
+      this.activeNode = node.key;
+      this.openActiveNode();
+      return;
+    }
     node.expanded = !node.expanded;
   }
 
-  showTable(id) {
-    console.log(id);
+  openActiveNode() {
+    console.log(this.activeNode);
+  }
+
+  addDb() {
+    this.nodes.push({
+      label: 'New DB',
+      children: [
+        { id: 9, label: 'Tables', icon: 'fas fa-folder', children: [] },
+        { id: 12, label: 'Queries', icon: 'fas fa-folder', children: [] }
+      ]
+    });
+    this.nodes.sort((a, b) => a.label > b.label ? 1 : -1);
+  }
+
+  addElement(e: Event, id: number) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    for (const db of this.nodes) {
+      const node = db.children.find(folder => folder.id === id);
+      if (node) {
+        node.children.push({ label: 'New Table', icon: 'fas fa-table', type: 'leaf' });
+        node.children.sort((a, b) => a.label > b.label ? 1 : -1);
+        return;
+      }
+    }
   }
 
 }

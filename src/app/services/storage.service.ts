@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 
 export class StorageVariables {
   static items= {
+    preferredLanguage: 'preferredLanguage',
     preferredTheme: 'preferredTheme'
   };
   static theme = {
@@ -18,11 +19,17 @@ export class StorageService {
   constructor() { }
 
   get = {
-    preferredTheme: localStorage.getItem(StorageVariables.items.preferredTheme) ?? this.getUserThemePreference()
+    preferredLanguage: localStorage.getItem(StorageVariables.items.preferredLanguage) ?? this.getUserLanguagePreference(),
+    preferredTheme: localStorage.getItem(StorageVariables.items.preferredTheme) ?? this.getUserThemePreference(),
   }
 
   set = {
-    preferredTheme: (theme: string) => localStorage.setItem(StorageVariables.items.preferredTheme, theme)
+    preferredLanguage: (language: string) => localStorage.setItem(StorageVariables.items.preferredLanguage, language),
+    preferredTheme: (theme: string) => localStorage.setItem(StorageVariables.items.preferredTheme, theme),
+  }
+
+  private getUserLanguagePreference() {
+    return navigator?.language ? navigator.language.split('-')[0] : 'en';
   }
 
   private getUserThemePreference() {

@@ -3,10 +3,11 @@
   <ng-template>
     <div class="p-grid p-m-0 fluid">
       <div class="p-col-auto sidebar">
-        <p-toggleButton [onIcon]="'pi pi-moon'" offIcon="pi pi-sun"
-        styleClass="p-button-link"
-        [(ngModel)]="isDarkTheme"
-        (onChange)="changeTheme()"></p-toggleButton>
+        <p-toggleButton [onIcon]="'fas fa-moon'" offIcon="fas fa-sun" styleClass="p-button-link"
+        [(ngModel)]="isDarkTheme" (onChange)="changeTheme()"></p-toggleButton>
+        <p-tieredMenu #langMenu [model]="languages" [popup]="true"></p-tieredMenu>
+        <button pButton type="button" icon="fas fa-language" class="p-button-link"
+        (click)="langMenu.toggle($event)"></button>
       </div>
         <div class="scrollable p-col p-p-0 treebar">
           <app-tree-view></app-tree-view>

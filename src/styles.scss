@@ -20,6 +20,12 @@ h2 {
   max-height: 250px!important;
 }
 
+button:not(.p-button-icon-only) {
+  .p-button-icon {
+    margin-right: 0.4rem;
+  }
+}
+
 ::-webkit-scrollbar {
   height: 12px;
   width: 12px;

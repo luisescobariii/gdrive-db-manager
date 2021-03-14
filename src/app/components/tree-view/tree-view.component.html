@@ -1,18 +1,18 @@
 <div class="p-d-flex p-jc-between p-ai-center">
-    <h2>Servers</h2>
-    <p-button label="New"></p-button>
+    <h2>{{ 'tree.databases' | translate }}</h2>
+    <p-button [label]="'common.new' | translate" (click)="addDb()"></p-button>
 </div>
 <br>
 <p-tree [value]="nodes" scrollHeight="flex" selectionMode="single" [filter]="true"
 (onNodeSelect)="handdleSelection($event)" class="fill-height">
-    <ng-template let-node pTemplate="table">
-        <div class="p-d-flex p-jc-between p-ai-center fullWidth">
-            <span>{{node.label}}</span>
-            <button pButton type="button" icon="pi pi-ellipsis-v"
-            class="p-button-text p-button-rounded p-button-sm ghost"></button>
-        </div>
+    <ng-template let-node pTemplate="leaf">
+        <span [class.active]="node.id === activeNode">{{node.label}}</span>
     </ng-template>
     <ng-template let-node pTemplate="default">
-        <b>{{node.label}}</b>
+        <div class="p-d-flex p-jc-between p-ai-center fullWidth">
+            <span>{{node.label}}</span>
+            <button pButton type="button" icon="fas fa-plus"
+            class="p-button-text p-button-sm ghost" (click)="addElement($event, node.id)"></button>
+        </div>
     </ng-template>
 </p-tree>

@@ -10,6 +10,8 @@
 }
 .sidebar {
     background-color: var(--surface-300);
+    display: flex;
+    flex-direction: column;
 }
 :host ::ng-deep {
     .p-tabview.p-component {
@@ -20,7 +22,7 @@
             overflow: auto;
         }
     }
-    .p-togglebutton.p-button.p-highlight {
+    .p-button.p-highlight {
         background: transparent;
         border: transparent;
         span {
