@@ -3,7 +3,7 @@
     <p-button [label]="'common.new' | translate" (click)="addDb()"></p-button>
 </div>
 <br>
-<p-tree [value]="nodes" scrollHeight="flex" selectionMode="single" [filter]="true"
+<p-tree [value]="nodes" scrollHeight="flex" selectionMode="single" [filter]="true" [loading]="loading"
 (onNodeSelect)="handdleSelection($event)" class="fill-height">
     <ng-template let-node pTemplate="leaf">
         <span [class.active]="node.id === activeNode">{{node.label}}</span>

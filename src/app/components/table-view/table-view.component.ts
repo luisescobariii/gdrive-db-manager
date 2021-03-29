@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { MockService } from 'src/app/services/mock.service';
 
 @Component({
   selector: 'app-table-view',
@@ -8,30 +9,17 @@ import { ApiService } from 'src/app/services/api.service';
 })
 export class TableViewComponent implements OnInit {
 
+  lists: any = {};
   table: any;
-
-  types = [
-    'any',
-    'boolean',
-    'date',
-    'number',
-    'string',
-  ];
-
-  initialOptions = [
-    '',
-    'increment()',
-    'uuid()',
-    'date(\'format\')',
-  ];
 
   isDeleteDialogVisible = false;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: MockService) { }
 
   ngOnInit(): void {
+    this.lists = this.api.general.getLists();
     this.table = this.api.table.get();
-    console.log(this.table);
+    // console.log(this.table);
   }
 
   addRow() {

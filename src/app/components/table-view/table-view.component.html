@@ -23,8 +23,8 @@
         <span class="fas fa-bars p-p-2" [pReorderableRowHandle]="index"></span>
       </td>
       <td class="p-fluid"><input type="text" pInputText [(ngModel)]="column.name"></td>
-      <td class="p-fluid"><p-dropdown [options]="types" [(ngModel)]="column.type"></p-dropdown></td>
-      <td class="p-fluid"><p-dropdown [options]="initialOptions"
+      <td class="p-fluid"><p-dropdown [options]="lists.types" [(ngModel)]="column.type"></p-dropdown></td>
+      <td class="p-fluid"><p-dropdown [options]="lists.initialOptions"
         [(ngModel)]="column.initialValue" [editable]="true"></p-dropdown></td>
       <td class="p-text-center"><p-checkbox [(ngModel)]="column.required"
         [binary]="true"></p-checkbox></td>
